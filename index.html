@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixel Image Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- FRONT PAGE \Home -->
+  <section class="cover-hero" id="coverHero">
+    <div class="cover-bg-slider">
+      <div class="cover-slide active" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1400&q=80');"></div>
+      <div class="cover-slide" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1400&q=80');"></div>
+      <div class="cover-slide" style="background-image: url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1400&q=80');"></div>
+      <div class="cover-slide" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1400&q=80');"></div>
+    </div>
+    <div class="cover-overlay"></div>
+
+    <!-- Top Navigation -->
+    <div class="cover-nav">
+      <div class="cover-logo">PIXEL<span style="color:#c4a882;">GALLERY</span></div>
+      <div class="cover-nav-links">
+        <span class="nav-link active" id="homeNavLink">HOME</span>
+        <span class="nav-link" id="galleryNavLink">GALLERY</span>
+        <span class="nav-link" id="aboutNavLink">ABOUT</span>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="cover-content">
+      <h1 class="cover-title">Pixel<br />Gallery</h1>
+      <p class="cover-sub">Explore a premium collection of stunning photography — from serene landscapes and urban skylines to vibrant food, abstract art, fashion, and beauty.</p>
+      <div class="cover-cta">
+        <button class="btn-primary" id="exploreBtn"><i class="fas fa-arrow-right"></i> VIEW GALLERY</button>
+        <button class="btn-outline" id="themeToggleCover"><i class="fas fa-moon"></i></button>
+      </div>
+    </div>
+
+    <!-- Like Widget -->
+    <div class="cover-like-widget">
+      <button class="like-btn" id="coverLikeBtn"><i class="far fa-thumbs-up"></i></button>
+      <span class="like-count" id="likeCount">8</span>
+    </div>
+
+    <!-- Slide Dots -->
+    <div class="cover-dots">
+      <span class="dot active" data-slide="0"></span>
+      <span class="dot" data-slide="1"></span>
+      <span class="dot" data-slide="2"></span>
+      <span class="dot" data-slide="3"></span>
+    </div>
+
+    <div class="cover-scroll-indicator">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!--  NAVBAR  -->
+  <nav class="navbar" id="mainNav">
+    <div class="nav-container">
+      <div class="logo">PIXEL<span style="color:var(--accent);">GALLERY</span></div>
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search by title or category..." />
+        <button id="clearSearch" class="clear-search"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="nav-controls">
+        <button id="themeToggle" class="theme-btn"><i class="fas fa-moon"></i></button>
+        <button id="viewToggle" class="view-btn"><i class="fas fa-th-large"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section" id="aboutSection">
+    <div class="about-container">
+      <div class="about-content">
+        <span class="about-badge"><i class="fas fa-info-circle"></i> ABOUT</span>
+        <h2 class="about-title">Pixel Gallery</h2>
+        <p class="about-text">
+          Pixel Gallery is a curated platform showcasing stunning high-quality photography 
+          from around the world. Our mission is to bring you the most beautiful and inspiring 
+          images across multiple categories — from nature and cityscapes to fashion, beauty, 
+          food, and abstract art.
+        </p>
+        <p class="about-text">
+          Images are selected to ensure the highest quality and visual appeal. 
+          Whether you're an art lover, designer, or just someone who appreciates beauty, 
+          Pixel Gallery offers a premium visual experience for everyone.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <i class="fas fa-images"></i>
+            <span>48+ Images</span>
+          </div>
+          <div class="about-feature">
+            <i class="fas fa-tags"></i>
+            <span>9 Categories</span>
+          </div>
+          <div class="about-feature">
+            <i class="fas fa-heart"></i>
+            <span>Curated with Care</span>
+          </div>
+        </div>
+        <div class="about-credit">
+          <i class="fas fa-code"></i> Designed by <strong>Atiqa Kamran</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN GALLERY  -->
+  <div class="container" id="galleryContainer">
+    <!-- Filters -->
+    <div class="filters-section">
+      <div class="filters-header">
+        <h3><i class="fas fa-filter"></i> Categories</h3>
+        <button id="resetFilters" class="reset-btn">Reset All</button>
+      </div>
+      <div class="filter-buttons" id="filterButtons">
+        <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> All (48)</button>
+        <button class="filter-btn" data-filter="nature"><i class="fas fa-leaf"></i> Nature (6)</button>
+        <button class="filter-btn" data-filter="city"><i class="fas fa-city"></i> City (6)</button>
+        <button class="filter-btn" data-filter="animals"><i class="fas fa-paw"></i> Animals (6)</button>
+        <button class="filter-btn" data-filter="food"><i class="fas fa-utensils"></i> Food (6)</button>
+        <button class="filter-btn" data-filter="abstract"><i class="fas fa-palette"></i> Abstract (6)</button>
+        <button class="filter-btn" data-filter="books"><i class="fas fa-book"></i> Books (6)</button>
+        <button class="filter-btn" data-filter="makeup"><i class="fas fa-paint-brush"></i> Makeup (6)</button>
+        <button class="filter-btn" data-filter="clothes"><i class="fas fa-tshirt"></i> Clothes (6)</button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+      <div class="stat-item"><i class="fas fa-images"></i> <span id="imageCount">0</span> images</div>
+      <div class="stat-item"><i class="fas fa-eye"></i> <span id="viewCount">0</span> total views</div>
+      <div class="stat-item"><i class="fas fa-star"></i> <span id="featuredCount">8</span> featured</div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery" id="gallery"></div>
+
+    <!-- No results -->
+    <div class="no-results" id="noResults">
+      <i class="fas fa-search"></i>
+      <h3>No images found</h3>
+      <p>Try adjusting your search or filter criteria</p>
+      <button id="clearAllFilters">Clear all filters</button>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX-->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-header">
+      <div class="lightbox-title" id="lightboxTitle"></div>
+      <div class="lightbox-actions">
+        <button class="lightbox-action" id="downloadImage"><i class="fas fa-download"></i></button>
+        <button class="lightbox-close" id="closeLightbox"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <button class="lightbox-nav prev" id="prevImage"><i class="fas fa-chevron-left"></i></button>
+    <img class="lightbox-img" id="lightboxImg" alt="Lightbox view" />
+    <button class="lightbox-nav next" id="nextImage"><i class="fas fa-chevron-right"></i></button>
+    <div class="lightbox-footer">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+      <div class="lightbox-category" id="lightboxCategory"></div>
+      <div class="lightbox-views" id="lightboxViews"></div>
+    </div>
+  </div>
+
+  <button id="backToGalleryBtn" class="back-to-gallery-btn">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Toast & Back to top -->
+  <div id="toast" class="toast"></div>
+  <button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="script.js"></script>
+</body>
+</html>
